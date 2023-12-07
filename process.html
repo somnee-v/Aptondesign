@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="/css/process.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Apartment On design</title>
+  </head>
+  <body>
+    <div id="header">
+      <div class="logo">
+        <a href="/index.html" target="_self">
+          <img src="./css/images/aptlogo.png" alt="aptondesign"
+        /></a>
+      </div>
+      <div class="category">
+        <nav id="navigation">
+          <ul id="menu">
+            <li><a href="/about.html" target="_self">about</a></li>
+            <li class="projects">projects</li>
+            <li><a href="/process.html" target="_self">process</a></li>
+            <li><a href="/contact.html" target="_self">contact</a></li>
+            <li class="sns">
+              <span>sns</span>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="tab1">
+        <ul>
+          <li>
+            <a href="./commercial.html" target="_self">commercial</a>
+          </li>
+          <li>
+            <a href="./residential.html" target="_self">residential</a>
+          </li>
+          <li>
+            <a href="./architecture.html" target="_self">architecture</a>
+          </li>
+        </ul>
+      </div>
+      <div class="tab2">
+        <ul>
+          <li>
+            <a
+              href="https://www.instagram.com/apartmentondesign/?igshid=OGQ5ZDc2ODk2ZA%3D%3D"
+              target="_blank"
+              >instagram</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://blog.naver.com/PostList.naver?blogId=apartmentondesign&categoryNo=7"
+              target="_blank"
+              >blog</a
+            >
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@ApartmentOnDesign" target="_blank"
+              >youtube</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!------- header ------->
+
+    <div class="board">
+      <ul>
+        <li>• 견적문의</li>
+        <a>
+          비공개 댓글 또는 E-mail로 문의 주시면 개별 연락을 드려 미팅 일정을
+          안내드립니다.<br />
+          aptondesign@naver.com
+        </a>
+        <li>• 상담 및 계약</li>
+        <a
+          >사무실 방문 후 프로젝트 진행의 순서와 디자인에 대하여 설명을
+          드리며<br />
+          실측 및 1차 디자인에 대한 가계약을 진행하게 됩니다.</a
+        >
+        <li>• 실측</li>
+        <a
+          >가계약 금액 입금시 일정에 맞추어 현장 방문을 하여 실측이
+          진행됩니다.</a
+        >
+        <li>• 1차 디자인 미팅</li>
+        <a
+          >상담과 실측을 기반으로 1차 디자인과 예상 견적을 드립니다.<br />
+          예상 견적서 기준 50%(착수금) 입금시 2차 미팅이 진행됩니다.<br />
+          [가계약 금액은 50%(착수금)에 포함합니다.]</a
+        >
+        <li>• 2차 디자인 미팅</li>
+        <a
+          >1차 디자인 미팅을 기반으로하여 평면도와 투시도를 제안해드리며<br />
+          마감재 컨택을 통하여 구체적인 견적을 드립니다.</a
+        >
+        <li>• 본 공사 계약</li>
+        <a>
+          최종 디자인 미팅을 바탕으로 본 공사의 계약이 이루어지게 됩니다.<br />
+          (본 공사 계약은 40% 입금시 진행됩니다.)
+        </a>
+        <li>• 공사 시작(4~8주 소요)</li>
+        <a>
+          철거를 시작으로 공사가 시작되며, 확정된 디자인과 견적으로 진행이
+          됩니다.
+        </a>
+        <li>• 공사 완료 및 촬영</li>
+        <a>
+          공사 일정 마감 후 입주 전 최종 점검 및 촬영이 진행됩니다.<br />
+          촬영된 자료는 당사의 포트폴리오로 활용이 됩니다.<br />
+          (잔금 10% 입금 및 공사 완료)
+        </a>
+        <li>• 사후 관리</li>
+        <a
+          >A/S기간은 1년이며, 빠른 시간내에 해결해 드릴 수 있는 시스템으로
+          운영이 됩니다.</a
+        >
+      </ul>
+    </div>
+    <footer>
+      <span>© Apartment On design.</span>
+    </footer>
+    <script>
+      $(".sns").hover(function () {
+        $(".tab2").addClass("display-on");
+      });
+      $("#header").mouseleave(function () {
+        $(".tab2").removeClass("display-on");
+      });
+
+      $(".projects").hover(function () {
+        $(".tab1").addClass("display-on");
+      });
+      $("#header").mouseleave(function () {
+        $(".tab1").removeClass("display-on");
+      });
+    </script>
+  </body>
+</html>

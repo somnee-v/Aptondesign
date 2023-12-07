@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/detail.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Apartment On design</title>
+    <style>
+      .main_img {
+        margin-top: 50px;
+        width: 100%;
+        height: 500px;
+        background: url(/css/images/main/26.jpg) center center;
+        background-size: cover;
+        margin-bottom: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div class="logo">
+        <a href="/index.html" target="_self">
+          <img src="/css/images/aptlogo.png" alt="aptondesign"
+        /></a>
+      </div>
+      <div class="category">
+        <nav id="navigation">
+          <ul id="menu">
+            <li><a href="/about.html" target="_self">about</a></li>
+            <li class="projects">projects</li>
+            <li><a href="/process.html" target="_self">process</a></li>
+            <li><a href="/contact.html" target="_self">contact</a></li>
+            <li class="sns">
+              <span>sns</span>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="tab1">
+        <ul>
+          <li>
+            <a href="./commercial.html" target="_self">commercial</a>
+          </li>
+          <li>
+            <a href="./residential.html" target="_self">residential</a>
+          </li>
+          <li>
+            <a href="./architecture.html" target="_self">architecture</a>
+          </li>
+        </ul>
+      </div>
+      <div class="tab2">
+        <ul>
+          <li>
+            <a
+              href="https://www.instagram.com/apartmentondesign/?igshid=OGQ5ZDc2ODk2ZA%3D%3D"
+              target="_blank"
+              >instagram</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://blog.naver.com/PostList.naver?blogId=apartmentondesign&categoryNo=7"
+              target="_blank"
+              >blog</a
+            >
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@ApartmentOnDesign" target="_blank"
+              >youtube</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!------- header ------->
+
+    <div class="main_img">
+      <div><a>K1 Training Center</a></div>
+    </div>
+    <div class="box">
+      <div class="left">
+        <img src="/css/images/architecture/01. K1 Training Center/A3.jpg" />
+        <img src="/css/images/architecture/01. K1 Training Center/A4.jpg" />
+        <img src="/css/images/architecture/01. K1 Training Center/B3.jpg" />
+        <img src="/css/images/architecture/01. K1 Training Center/B4.jpg" />
+      </div>
+      <div class="right">
+        <div class="box2">
+          <div class="mark">architecture</div>
+          <div class="title">K1 Training Center</div>
+          <div class="contents"><span>contents</span> <a>K1건설 연수원</a></div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <span>© Apartment On design.</span>
+    </footer>
+    <script>
+      $(".sns").hover(function () {
+        $(".tab2").addClass("display-on");
+      });
+      $("#header").mouseleave(function () {
+        $(".tab2").removeClass("display-on");
+      });
+
+      $(".projects").hover(function () {
+        $(".tab1").addClass("display-on");
+      });
+      $("#header").mouseleave(function () {
+        $(".tab1").removeClass("display-on");
+      });
+    </script>
+  </body>
+</html>

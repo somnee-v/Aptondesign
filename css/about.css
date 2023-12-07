@@ -1,0 +1,31 @@
+.info {
+  width: 80%;
+  height: 850px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 170px;
+  line-height: 1.8;
+}
+.info span {
+  font-weight: bold;
+}
+
+.info img {
+  width: 70%;
+  height: 500px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+/* 미디어 쿼리를 사용하여 화면 크기에 따라 스타일을 조절함 */
+@media screen and (max-width: 768px) {
+  .info {
+    width: 90%; /* 화면이 작아질 때 좀 더 좁은 영역을 사용하도록 함 */
+    margin-top: 100px; /* 상단 여백을 줄임 */
+  }
+
+  .info img {
+    max-height: 300px; /* 화면이 작아질 때 이미지의 최대 높이를 줄임 */
+  }
+}

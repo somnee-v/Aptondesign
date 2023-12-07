@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Apartment On design</title>
+    <style>
+      .filter-section {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1.5px solid rgba(176, 176, 176, 0.481);
+        border-bottom: 1.5px solid rgba(176, 176, 176, 0.481);
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin-top: 100px;
+        margin-bottom: 100px;
+      }
+
+      .filter-category {
+        flex: 1;
+        margin-right: 20px;
+        margin-left: 40px;
+      }
+
+      .filter-category p {
+        font-weight: bold;
+      }
+
+      .filter-options {
+        display: flex;
+        flex-wrap: wrap;
+        color: rgb(134, 134, 134);
+        margin-top: 50px;
+      }
+
+      .filter-options label {
+        display: inline-block;
+        margin: 5px;
+        padding: 5px 10px;
+        border: 1px dashed #ccc;
+        cursor: pointer;
+        margin-top: 30px;
+        margin-right: 10px;
+      }
+
+      /* 선택된 상태의 스타일 */
+      .filter-options label.selected {
+        background-color: #e0e0e0;
+      }
+      /* 이미지 부분 디자인 수정 */
+      .filtered-images {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .filtered-images img {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div class="logo">
+        <a href="/index.html" target="_self">
+          <img src="./css/images/aptlogo.png" alt="aptondesign"
+        /></a>
+      </div>
+      <div class="category">
+        <nav id="navigation">
+          <ul id="menu">
+            <li><a href="/about.html" target="_self">about</a></li>
+            <li class="projects">projects</li>
+            <li><a href="/process.html" target="_self">process</a></li>
+            <li><a href="/contact.html" target="_self">contact</a></li>
+            <li class="sns">
+              <span>sns</span>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="tab1">
+        <ul>
+          <li>
+            <a href="./commercial.html" target="_self">commercial</a>
+          </li>
+          <li>
+            <a href="./residential.html" target="_self">residential</a>
+          </li>
+          <li>
+            <a href="./architecture.html" target="_self">architecture</a>
+          </li>
+        </ul>
+      </div>
+      <div class="tab2">
+        <ul>
+          <li>
+            <a
+              href="https://www.instagram.com/apartmentondesign/?igshid=OGQ5ZDc2ODk2ZA%3D%3D"
+              target="_blank"
+              >instagram</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://blog.naver.com/PostList.naver?blogId=apartmentondesign&categoryNo=7"
+              target="_blank"
+              >blog</a
+            >
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@ApartmentOnDesign" target="_blank"
+              >youtube</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!------- header ------->
+
+    <div id="root"></div>
+    <footer>
+      <span>© Apartment On design.</span>
+    </footer>
+
+    <script>
+      $(".sns").hover(function () {
+        $(".tab2").addClass("display-on");
+      });
+      $("#header").mouseleave(function () {
+        $(".tab2").removeClass("display-on");
+      });
+
+      $(".projects").hover(function () {
+        $(".tab1").addClass("display-on");
+      });
+      $("#header").mouseleave(function () {
+        $(".tab1").removeClass("display-on");
+      });
+    </script>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- FilterComponent.js 파일 추가 -->
+    <script type="module">
+      const { useState, createElement } = React;
+
+      const FilterComponent = () => {
+        const [selectedOptions, setSelectedOptions] = useState([]);
+
+        const optionsByCategory = {
+          평형: ["10", "20", "30", "40", "50", "그외 "],
+          공간별: [
+            "bakery&cafe / bar",
+            "exhibition",
+            "fashion",
+            "office",
+            "dining & restaurnt",
+            "academy",
+            "clinic",
+          ],
+          정렬: ["큰 평형순", "작은 평형순"],
+        };
+        const images = [
+          {
+            id: 1,
+            src: "/filtering-example/public/images/main/1.jpg",
+            categories: ["30", "bakery&cafe / bar"],
+            caption: "분당 빈티지 1988",
+          },
+          {
+            id: 2,
+            src: "/filtering-example/public/images/main/2.jpg",
+            categories: ["30", "clinic"],
+            caption: "포항 디지털 덴탈 클리닉",
+          },
+          {
+            id: 3,
+            src: "/filtering-example/public/images/main/3.jpg",
+            categories: ["100", "exhibition"],
+            caption: "M 갤러리 전시",
+          },
+          {
+            id: 4,
+            src: "/filtering-example/public/images/main/4.jpg",
+            categories: ["40", "exhibition"],
+            caption: "전통 공예 플래그쉽 스토어",
+          },
+          {
+            id: 5,
+            src: "/filtering-example/public/images/main/5.jpg",
+            categories: ["50", "academy"],
+            caption: "구의동 수학지능 학원",
+          },
+          {
+            id: 7,
+            src: "/filtering-example/public/images/main/7.jpg",
+            categories: ["300", "academy"],
+            caption: "부산 명지 카카오 골프",
+          },
+          {
+            id: 8,
+            src: "/filtering-example/public/images/main/8.jpg",
+            categories: ["50", "office"],
+            caption: "K1건설 회의실",
+          },
+          {
+            id: 9,
+            src: "/filtering-example/public/images/main/9.jpg",
+            categories: ["20", "clinic"],
+            caption: "무브 네일 & 래쉬",
+          },
+          {
+            id: 10,
+            src: "/filtering-example/public/images/main/10.jpg",
+            categories: ["20", "bakery&cafe / bar"],
+            caption: "온 커피",
+          },
+          {
+            id: 11,
+            src: "/filtering-example/public/images/main/11.jpg",
+            categories: ["30", "dining & restaurnt"],
+            caption: "용산 도모 스시 일식 주점",
+          },
+          {
+            id: 12,
+            src: "/filtering-example/public/images/main/12.jpg",
+            categories: ["30", "dining & restaurnt"],
+            caption: "삼각지 한식 주점",
+          },
+          {
+            id: 13,
+            src: "/filtering-example/public/images/main/13.jpg",
+            categories: ["150", "academy"],
+            caption: "수내 스터디 카페",
+          },
+          {
+            id: 14,
+            src: "/filtering-example/public/images/main/14.jpg",
+            categories: ["20", "bakery&cafe / bar"],
+            caption: "경기 하남 와인 바",
+          },
+          {
+            id: 15,
+            src: "/filtering-example/public/images/main/15.jpg",
+            categories: ["20", "office"],
+            caption: "가산 지식산업센터 사무실",
+          },
+          {
+            id: 16,
+            src: "/filtering-example/public/images/main/16.jpg",
+            categories: ["4", "dining & restaurnt"],
+            caption: "부산 전포동 몽키브라운",
+          },
+          {
+            id: 17,
+            src: "/filtering-example/public/images/main/17.jpg",
+            categories: ["20", "bakery&cafe / bar"],
+            caption: "나주 와인바",
+          },
+          {
+            id: 18,
+            src: "/filtering-example/public/images/main/18.jpg",
+            categories: ["30", "bakery&cafe / bar"],
+            caption: "인천 베이커리 빵끗",
+          },
+          {
+            id: 19,
+            src: "/filtering-example/public/images/main/19.jpg",
+            categories: ["30", "bakery&cafe / bar"],
+            caption: "통영 루프탑 아뮤제",
+          },
+          {
+            id: 20,
+            src: "/filtering-example/public/images/main/20.jpg",
+            categories: ["300", "dining & restaurnt"],
+            caption: "창원 솔 갈비",
+          },
+          {
+            id: 22,
+            src: "/filtering-example/public/images/main/22.jpg",
+            categories: ["30", "bakery&cafe / bar"],
+            caption: "압구정 문워크 바",
+          },
+          {
+            id: 23,
+            src: "/filtering-example/public/images/main/23.jpg",
+            categories: ["30", "bakery&cafe / bar"],
+            caption: "하회 블랑제리",
+          },
+          {
+            id: 24,
+            src: "/filtering-example/public/images/main/24.jpg",
+            categories: ["20", "bakery&cafe / bar"],
+            caption: "태국 마리앙트 카페",
+          },
+          {
+            id: 25,
+            src: "/filtering-example/public/images/main/25.jpg",
+            categories: ["10", "bakery&cafe / bar"],
+            caption: "화성 카페 06",
+          },
+
+          // 추가 이미지 정보
+        ];
+
+        const handleOptionChange = (option) => {
+          setSelectedOptions((prevOptions) => {
+            const isOptionSelected = prevOptions.includes(option);
+
+            if (isOptionSelected) {
+              // 이미 선택된 옵션인 경우, 제거
+              return prevOptions.filter((o) => o !== option);
+            } else {
+              // 새로운 옵션 선택
+              return [...prevOptions, option];
+            }
+          });
+        };
+
+        const isOptionSelected = (option) =>
+          selectedOptions.includes(option) ? "selected" : "";
+
+        const getFilteredImages = () => {
+          console.log("Selected Options:", selectedOptions);
+
+          if (selectedOptions.length === 0) {
+            console.log("No filters selected. Returning all images.");
+            return images;
+          }
+
+          const filteredImages = images.filter((image) =>
+            selectedOptions.some((option) => {
+              if (option === "그외 ") {
+                const isExcluded = !optionsByCategory["평형"].includes(
+                  image.categories[0]
+                );
+                console.log(
+                  `Image ${image.id} Excluded by "그외 " option: ${isExcluded}`
+                );
+                return isExcluded;
+              } else {
+                const isIncluded = image.categories.includes(option);
+                console.log(
+                  `Image ${image.id} Included by ${option} option: ${isIncluded}`
+                );
+                return isIncluded;
+              }
+            })
+          );
+
+          console.log("Filtered Images:", filteredImages);
+          return filteredImages;
+        };
+
+        return createElement(
+          "div",
+          null,
+          createElement(
+            "div",
+            { className: "filter-section" },
+            Object.keys(optionsByCategory).map((category) =>
+              createElement(
+                "div",
+                { key: category, className: "filter-category" },
+                createElement("p", null, `${category} 선택:`),
+                createElement(
+                  "div",
+                  { className: "filter-options" },
+                  optionsByCategory[category].map((option) =>
+                    createElement(
+                      "label",
+                      {
+                        key: option,
+                        className: `${
+                          selectedOptions.includes(option) ? "selected" : ""
+                        }`,
+                        onClick: () => handleOptionChange(option),
+                      },
+                      option
+                    )
+                  )
+                )
+              )
+            )
+          ),
+          createElement(
+            "div",
+            { className: "filtered-images" },
+            getFilteredImages().map((image) => {
+              return createElement(
+                "a",
+                {
+                  key: image.id,
+                  href: `/detail/${image.id}.html`, // 여기에 이미지에 연결할 실제 경로를 추가하세요
+                  style: {
+                    width: "calc(33.333% - 50px)",
+                    margin: "0 25px 150px",
+                    boxSizing: "border-box",
+                    display: "block", // 앵커 요소는 기본적으로 인라인이므로 블록 수준 요소로 변경
+                    textDecoration: "none", // 링크에 밑줄 제거
+                  },
+                },
+                createElement("img", {
+                  src: image.src,
+                  alt: `Image ${image.id}`,
+                  "data-caption": image.caption,
+                }),
+                createElement(
+                  "p",
+                  {
+                    style: {
+                      color: "black",
+                      fontSize: "18pt",
+                      fontWeight: "bold",
+                      marginTop: "20px",
+                      textAlign: "center",
+                    },
+                  },
+                  image.caption
+                )
+              );
+            })
+          )
+        );
+      };
+      // ReactDOM 렌더링
+      const domContainer = document.getElementById("root");
+      ReactDOM.render(createElement(FilterComponent), domContainer);
+    </script>
+  </body>
+</html>

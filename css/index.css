@@ -1,0 +1,183 @@
+@font-face {
+  font-family: "MontBlanc-Trial-SemiBold";
+  src: url("fonts/MontBlanc-Trial-SemiBold.otf") format("opentype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.logo img {
+  height: 70px;
+  width: 200px;
+}
+
+#header {
+  display: flex;
+  width: 85%;
+  position: relative;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.category {
+  position: absolute;
+  right: 0;
+}
+.category ul {
+  display: flex;
+  list-style: none;
+  font-family: "MontBlanc-Trial-SemiBold";
+}
+.category li {
+  padding-left: 40px;
+}
+
+.category ul > li > a {
+  text-decoration: none;
+  color: #000;
+}
+.tab1 {
+  display: grid;
+  position: absolute;
+  right: 20%;
+  top: 60px;
+  background: rgb(255, 255, 255);
+  font-weight: bold;
+  font-family: "MontBlanc-Trial-SemiBold";
+  border-radius: 7px;
+  display: none;
+}
+
+.tab2 {
+  display: grid;
+  position: absolute;
+  left: 94%;
+  top: 60px;
+  background: rgb(255, 255, 255);
+  font-weight: bold;
+  font-family: "MontBlanc-Trial-SemiBold";
+  border-radius: 7px;
+  display: none;
+}
+.display-on {
+  display: block;
+  transition-duration: 0.9s;
+}
+.tab1 > ul > li {
+  list-style: none;
+  width: 130px;
+  margin-top: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.tab1 > ul > li > a {
+  text-decoration: none;
+  color: #000;
+}
+
+.tab2 > ul > li {
+  list-style: none;
+  margin-top: 10px;
+  width: 115px;
+  font-size: 12pt;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.tab2 > ul > li > a {
+  text-decoration: none;
+  color: #000;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+
+.con {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.con > .div {
+  text-align: center;
+  font-weight: bold;
+  height: 180px;
+  flex: 1;
+  margin: 10px;
+  position: relative;
+}
+.con > .div > a > span {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  color: white;
+  font-size: 15pt;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  width: 100%;
+  height: 100%;
+  line-height: 180px;
+}
+
+.container img {
+  width: 100%; /* 이미지가 컨테이너에 꽉 차도록 */
+  height: 100%;
+  margin-bottom: 15px;
+}
+
+.con > div::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.471);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease; /* 부드러운 효과를 위한 transition 속성 */
+  pointer-events: none; /* 링크가 겹치지 않도록 함 */
+  z-index: 900;
+}
+
+.con > .div:hover::after {
+  opacity: 1;
+}
+
+.con > .div:hover > a > span {
+  opacity: 1;
+}
+
+/* a 태그를 포함한 내부 요소들에게 pointer-events 속성을 재설정합니다. */
+.con > .div a,
+.con > .div img {
+  pointer-events: auto;
+}
+
+footer {
+  margin-top: 150px;
+  margin-bottom: 30px;
+  font-weight: bolder;
+  color: rgb(65, 60, 60);
+  text-align: center;
+  font-size: 11pt;
+}
+
+/* 반응형 스타일: 600px 이하일 때 */
+@media screen and (max-width: 600px) {
+  .div {
+    flex: 1 100%;
+  }
+}
+
+/* 반응형 스타일: 768px 이하일 때 */
+@media screen and (max-width: 768px) {
+  .div {
+    flex: 1 48%;
+  }
+}
